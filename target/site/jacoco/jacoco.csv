@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+robot-controller,com.robot.tests,RobotController,2,319,4,31,0,72,4,29,0,11
+robot-controller,com.robot.tests,RobotController.Direction,0,27,0,0,0,2,0,1,0,1
+robot-controller,com.robot.tests,Main,15,157,3,23,6,46,4,12,1,2

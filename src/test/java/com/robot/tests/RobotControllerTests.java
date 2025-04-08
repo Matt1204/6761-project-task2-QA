@@ -24,6 +24,12 @@ public class RobotControllerTests {
     }
 
     @Test
+    public void testInitializeCommandNegative() {
+        robot.initialize(-9);
+        assertTrue(outContent.toString().contains("Grid size must be greater than 0."));
+    }
+
+    @Test
     public void testInitializeCommand() {
         robot.initialize(10);
         assertTrue(outContent.toString().contains("Initialized 10x10 grid."));
@@ -57,6 +63,37 @@ public class RobotControllerTests {
         robot.turnRight();
         assertTrue(outContent.toString().contains("Turned right. Now facing EAST."));
         assertEquals(RobotController.Direction.EAST, robot.direction);
+
+        robot.turnRight();
+        assertTrue(outContent.toString().contains("Turned right. Now facing SOUTH."));
+        assertEquals(RobotController.Direction.SOUTH, robot.direction);
+
+        robot.turnRight();
+        assertTrue(outContent.toString().contains("Turned right. Now facing WEST."));
+        assertEquals(RobotController.Direction.WEST, robot.direction);
+
+        robot.turnRight();
+        assertTrue(outContent.toString().contains("Turned right. Now facing NORTH."));
+        assertEquals(RobotController.Direction.NORTH, robot.direction);
+    }
+
+    @Test
+    public void testTurnLeftCommand() {
+        robot.turnLeft();
+        assertTrue(outContent.toString().contains("Turned left. Now facing WEST."));
+        assertEquals(RobotController.Direction.WEST, robot.direction);
+
+        robot.turnLeft();
+        assertTrue(outContent.toString().contains("Turned left. Now facing SOUTH."));
+        assertEquals(RobotController.Direction.SOUTH, robot.direction);
+
+        robot.turnLeft();
+        assertTrue(outContent.toString().contains("Turned left. Now facing EAST."));
+        assertEquals(RobotController.Direction.EAST, robot.direction);
+
+        robot.turnLeft();
+        assertTrue(outContent.toString().contains("Turned left. Now facing NORTH."));
+        assertEquals(RobotController.Direction.NORTH, robot.direction);
     }
 
     @Test
@@ -75,6 +112,12 @@ public class RobotControllerTests {
         robot.move(2);
         robot.printFloor();
         assertTrue(outContent.toString().contains("Floor:")); // Ensuring floor prints
+    }
+
+    @Test
+    public void testPrintFloorCommandWithNull() {
+        robot.printFloor();
+        assertTrue(outContent.toString().contains("Error: Grid is not initialized.")); // Ensuring floor prints
     }
 
     @Test
